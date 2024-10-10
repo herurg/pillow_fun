@@ -25,7 +25,13 @@ WIDTH = 800
 HEIGHT = 600
 
 
-screen = pg.display.set_mode((WIDTH, HEIGHT),HWSURFACE|DOUBLEBUF|RESIZABLE)
+
+pg.init()
+video_infos = pg.display.Info()
+width, height = video_infos.current_w, video_infos.current_h
+
+screen = pg.display.set_mode((width-50, height-50),HWSURFACE|DOUBLEBUF|RESIZABLE)
+
 pg.display.set_icon(ico)
 pg.display.set_caption('Pillow FUN v1')
 running = True
@@ -73,7 +79,7 @@ while running:
 
     else:
         pillow_event = "No COM Device"
-    #print (pillow_event)
+    print (pillow_event)
 
     all_sprites.update()
     screen.fill((0,0,12))
